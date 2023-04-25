@@ -16,14 +16,14 @@ const App = () => {
 
   useEffect(() => {
     const fetchAndSetData = async () => {
+      setIsLoading(true);
       const fetchedData = await getCoinData();
       if (JSON.stringify(fetchedData) === JSON.stringify(coinData)) return;
       setCoinData(fetchedData);
+      setIsLoading(false);
     };
 
-    setIsLoading(true);
     fetchAndSetData();
-    setIsLoading(false);
   }, [coinData]);
 
   return (
