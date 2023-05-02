@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import "./styles.css";
-import getCoinData from "./helpers/getCoinData";
+import getCoinData from "./getCoinData";
 import Navigation from "./components/Navigation";
 import TopSection from "./components/TopSection";
 import CTASection from "./components/CTASection";
 import CryptoMarket from "./components/CryptoMarket";
 import WhySection from "./components/WhySection";
 import JoinSection from "./components/JoinSection";
+import Loading from "./components/Loading";
 import * as Types from "./types";
 
 const App = () => {
@@ -15,21 +16,21 @@ const App = () => {
 
   useEffect(() => {
     const fetchAndSetData = async () => {
+      setIsLoading(true);
       const fetchedData = await getCoinData();
       if (JSON.stringify(fetchedData) === JSON.stringify(coinData)) return;
-      console.log("Fetched Data:", fetchedData);
       setCoinData(fetchedData);
+      setIsLoading(false);
     };
 
-    setIsLoading(true);
     fetchAndSetData();
-    setTimeout(() => setIsLoading(false), 1000);
-  }, []);
+  }, [coinData]);
 
   return (
     <div className="app">
       <Navigation />
-      <TopSection coinData={coinData} isLoading={isLoading} />
+      {isLoading && <Loading />}
+      {!isLoading && <TopSection coinData={coinData} />}
       {!isLoading && <CTASection coinData={coinData} />}
       {!isLoading && <CryptoMarket coinData={coinData} />}
       <WhySection />

@@ -4,9 +4,7 @@ import { numberWithCommas, simplifyNumber } from "../helpers";
 
 const CryptoMarket = ({ coinData }: { coinData: Coin[] }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const sortedCoinData = coinData.sort(
-    (a, b) => +a.market_cap_rank - +b.market_cap_rank
-  );
+  const sortedCoinData = coinData.sort((a, b) => +b.market_cap - +a.market_cap);
 
   const MarketRow = ({ coin }: { coin: Coin }) => (
     <tr className="market__content__row">
@@ -19,7 +17,7 @@ const CryptoMarket = ({ coinData }: { coinData: Coin[] }) => {
       </td>
       <td
         style={{
-          color: +coin?.price_change_percentage_24h < 0 ? "#ff0000" : "#0ecb81",
+          color: +coin?.price_change_percentage_24h < 0 ? "#ff0000" : "#0ecb81"
         }}
         className="row__change"
       >
@@ -63,12 +61,9 @@ const CryptoMarket = ({ coinData }: { coinData: Coin[] }) => {
       </table>
       <div className="market__pagination">
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((a, idx) => (
-          <PageButton key={idx} idx={idx} />
+          <PageButton idx={idx} />
         ))}
       </div>
-      <a className="market__attribution" href="https://www.coingecko.com/">
-        Data provided by CoinGecko
-      </a>
     </div>
   );
 };
