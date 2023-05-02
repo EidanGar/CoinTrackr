@@ -102,7 +102,7 @@ h6 {
   justify-content: space-between;
   background-color: var(--bg-primary);
   border-bottom: 2px solid var(--bg-secondary);
-  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.09);
   z-index: 2;
 }
 
@@ -272,7 +272,7 @@ h6 {
 
 .app__top-section::before {
   content: "";
-  height: 15vh;
+  height: 10vh;
   visibility: hidden;
 }
 
@@ -314,60 +314,6 @@ h6 {
 
 .top-section__crypto-coin > p:first-of-type + p {
   font-size: 1.375rem;
-}
-
-/* Loading */
-
-.loading {
-  position: relative;
-  margin: 40px auto;
-  width: 100px;
-  height: 100px;
-}
-
-.loading hr {
-  border: 0;
-  margin: 0;
-  width: 40%;
-  height: 40%;
-  position: absolute;
-  border-radius: 50%;
-  animation: spin 2s ease infinite;
-}
-
-.loading :first-child {
-  background: #19a68c;
-  animation-delay: -1.5s;
-}
-
-.loading :nth-child(2) {
-  background: #f63d3a;
-  animation-delay: -1s;
-}
-
-.loading :nth-child(3) {
-  background: #fda543;
-  animation-delay: -0.5s;
-}
-
-.loading :last-child {
-  background: #193b48;
-}
-
-@keyframes spin {
-  0%,
-  100% {
-    transform: translate(0);
-  }
-  25% {
-    transform: translate(160%);
-  }
-  50% {
-    transform: translate(160%, 160%);
-  }
-  75% {
-    transform: translate(0, 160%);
-  }
 }
 
 /* Call to Action Section */
@@ -581,10 +527,6 @@ h6 {
   transform: scale(1.5);
 }
 
-.market__attribution {
-  margin-top: 1.25rem;
-}
-
 /* Why Section */
 
 .app__why {
@@ -753,6 +695,60 @@ h6 {
 
 .join__links a:hover {
   color: var(--clr-secondary);
+}
+
+/* Loading */
+
+.loading {
+  position: relative;
+  margin: 40px auto;
+  width: 100px;
+  height: 100px;
+}
+
+.loading hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+}
+
+.loading :first-child {
+  background: #19a68c;
+  animation-delay: -1.5s;
+}
+
+.loading :nth-child(2) {
+  background: #f63d3a;
+  animation-delay: -1s;
+}
+
+.loading :nth-child(3) {
+  background: #fda543;
+  animation-delay: -0.5s;
+}
+
+.loading :last-child {
+  background: #193b48;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(160%);
+  }
+  50% {
+    transform: translate(160%, 160%);
+  }
+  75% {
+    transform: translate(0, 160%);
+  }
 }
 
 /* Media Queries */
