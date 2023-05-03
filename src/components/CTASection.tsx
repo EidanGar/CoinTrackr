@@ -1,5 +1,5 @@
 import { Coin } from "../types";
-import { numberWithCommas, truncateText } from "../helpers";
+import { truncateText } from "../helpers";
 
 const CTASection = ({ coinData }: { coinData: Coin[] }) => {
   const topGainers =
