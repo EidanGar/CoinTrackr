@@ -1,4 +1,4 @@
-import { Coin } from "./types";
+import { Coin } from "../types";
 import backupData from "./backupCoinData";
 
 const getCoinData = async () => {
